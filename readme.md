@@ -9,7 +9,7 @@ The list elements can be, for example, options list, row of table, unorderd html
 
  GNU General Public License, version 3 (GPL-3.0) http://www.gnu.org/licenses/gpl-3.0.en.html
 
-## Info
+## Info and demo
   Listorder Site Web  [http://www.athos99.com/listorder](http://www.athos99.com/listorder)
 
 
