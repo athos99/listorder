@@ -1,4 +1,4 @@
-/* listorder version 1.0
+/* listorder version 1.0.1
 * Copyright (c) 2012 Michel Bobillier aka Athos99 www.athos99.com
 *
 * GNU General Public License, version 3 (GPL-3.0) http://www.gnu.org/licenses/gpl-3.0.en.html
@@ -11,8 +11,8 @@
 *           $("select").listorder( {filter:'asc'});
 *           $("ul").listorder( {filter:'asc',child:'ul'});
 */
-"use strict";
 (function( $ ){
+    "use strict";
     // protected functions
 
     /**
@@ -362,8 +362,8 @@
                     }
                     if ( rmv)
                     {
+                        datas.savelist[i].detach();
                         datas.savelist.splice(i,1);
-                        $($list.children()[i]).detach();
                     } else {
                         i++;
                     }
@@ -449,7 +449,7 @@
                 var $list = $(this);
                 var datas = $list.data('listorder');
                 datas.settings.childValue = fnChildValue;
-                 _order(datas);
+                _order(datas);
                 _display($list, datas);
             });
         }
