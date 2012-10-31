@@ -1,0 +1,36 @@
+{
+    "name": "listorder",
+    "version": "1.0.1",
+    "title": "jQuery.listorder()",
+    "author": {
+        "name": "Michel Bobillier aka Athos99",
+        "url": "http://www.athos99.com/listorder"
+    },
+    "licenses": [
+        {
+            "type": "GPL-3.0",
+            "url": "http://www.gnu.org/licenses/gpl-3.0.en.html"
+        }
+    ],
+    "dependencies": {
+        "jquery": ">=1.7"
+    },
+    "description": "Listorder is a javascript plugin for jQuery. You can manipulate children element of list. The list elements can be, for example, options list, row of table, unorderd html list, sub div....",
+    "keywords": [
+        "list",
+        "option",
+        "select",
+        "filter",
+        "order",
+        "ordering",
+        "table",
+        "li"
+    ],
+    "homepage": "http://www.athos99.com/listorder",
+    "maintainers": [
+        {
+            "name": "Michel Bobillier",
+            "url": "https://github.com/athos99"
+        }
+    ]
+}
