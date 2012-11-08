@@ -1,4 +1,4 @@
-/* listorder version 1.0.1
+/* listorder version 1.0.2
 * Copyright (c) 2012 Michel Bobillier aka Athos99 www.athos99.com
 *
 * GNU General Public License, version 3 (GPL-3.0) http://www.gnu.org/licenses/gpl-3.0.en.html
@@ -384,15 +384,15 @@
             var datas = $list.data('listorder');
             var datasSrc = $source.data('listorder');
 
-            $list.children(datas.settings.child).on('click.listorder',function(){
-                $(this).removeAttr("selected");
-                $list.listorder('remove',$(this));
+            $list.on('click.listorder',function(){
+                var $element = $(this.item(this.selectedIndex));
+                $element.removeAttr("selected");
+                $list.listorder('remove',$element);
             });
-            $source.children(datasSrc.settings.child).on('click.listorder',function(event){
-                $(this).removeAttr("selected");
-                var $obj = $(this).clone().on('click',function() {
-                    $list.listorder('remove',$(this));
-                });
+            $source.on('click.listorder',function(){
+                var $element = $(this.item(this.selectedIndex));
+                $element.removeAttr("selected");
+                var $obj = $element.clone();
                 $list.listorder('add',$obj);
             });
         },
@@ -425,12 +425,17 @@
             var datas = $list.data('listorder');
             var datasSrc = $list.data('listorder');
             methods.exclude.call($source,$list);
-
-            $list.children(datas.settings.child).on('click.listorder',function(event){
-                _moveTo( $(this), $list, $source, event);
+            $list.on('click.listorder',function(event){
+                var $element = $(this.item(this.selectedIndex));
+                $element.removeAttr("selected");
+                $list.listorder('remove',$element);
+                $source.listorder('add',$element);
             });
-            $source.children(datasSrc.settings.child).on('click.listorder',function(event){
-                _moveTo( $(this),  $source, $list, event);
+            $source.on('click.listorder',function(event){
+                var $element = $(this.item(this.selectedIndex));
+                $element.removeAttr("selected");
+                $source.listorder('remove',$element);
+                $list.listorder('add',$element);
             });
 
         },
