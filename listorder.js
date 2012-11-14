@@ -1,4 +1,4 @@
-/* listorder version 1.0.2
+/* listorder version 1.0.3
 * Copyright (c) 2012 Michel Bobillier aka Athos99 www.athos99.com
 *
 * GNU General Public License, version 3 (GPL-3.0) http://www.gnu.org/licenses/gpl-3.0.en.html
@@ -30,8 +30,6 @@
         datas.savelist.sort(function(a,b) {
             a = datas.settings.childValue.call(a);
             b = datas.settings.childValue.call(b);
-            //            a= a.text().toLowerCase();
-            //            b= b.text().toLowerCase();
             if ($.isNumeric(a) && $.isNumeric(b)) {
                 return a-b;
             }
@@ -106,16 +104,6 @@
             _selectAll($list);
         });
     }
-    function _moveTo( $e, $src, $dst, event) {
-        //        event.stopImmediatePropagation();
-        $e.off('click.listorder');
-        $e.removeAttr("selected");
-        $src.listorder('remove',$e);
-        $dst.listorder('add',$e);
-        $e.on('click.listorder',function(event) {
-            _moveTo( $(this), $dst,$src,event);
-        });
-    }
     // public methods
     var methods = {
         /**
@@ -141,7 +129,7 @@
                     order : 'asc',
                     child: 'option',
                     childValue: function() {
-                        return this.text();
+                        return this.text().toLowerCase();
                     },
                     filter: '',
                     filterExact: false,
